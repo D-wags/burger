@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Burgers To Eat</title>
+  </head>
+  
+<header class="text-center">
+  <div class="jumbotron mainBanner">
+    <h1>Get a burger!!!</h1>
+  </div>
+</header>
+<main>
+<body>
+<div class="container text-center">
+  <div class="container">
+    <div class="row main">
+      <div class="col-md-6 col-xs-12">
+        <h1>Burgers To Eat</h1>
+          {{#each burgers}}
+            {{#unless this.devoured}}
+            <div class="row">
+              <div class="col-xs-9">
+                <h3>{{this.burger_name}}</h3>
+              </div>
+              <div class="col-xs-3">
+                <form action="burgers/update/devour/{{this.id}}?_method=PUT" method="POST">
+                  <button class="btn btn-success" type="submit" style="float:right">DEVOUR!</button>
+                </form>
+              </div>
+            </div>
+            <hr class="break">
+            {{/unless}}
+          {{/each}}
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <h1>Burgers That Got Ate!</h1>
+          {{#each burgers}}
+            {{#if this.devoured}}
+            <div class="row">
+              <div class="col-xs-6">
+                <h3>{{this.burger_name}}</h3>
+              </div>
+            <hr class="break">
+            {{/if}}
+          {{/each}}
+      </div>
+    </div>
+    <div class="row bottom">
+      <h1>Add a Burger</h1>
+      <form class="form-inline" action="burgers/create" method="POST">
+        <div class="form-group">
+          <label for="ca"><h4>What burger you want?</h4></label>
+          <input type="text" id="ca" name="name" class="form-control" required>
+        </div>
+        <button class="btn btn-success" type="submit">Add Burger</button>
+      </form>
+    </div>
+  </div>
+</div>
+</main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+ </body>
+</HTML>

@@ -1,7 +1,50 @@
+// var connection = require('../config/connection.js');
+
+// var orm = {
+    
+//     selectAll: function (table) {
+// 		var queryString = 'SELECT * FROM ' + table + ';';
+		
+// 		connection.query(queryString, function (err, result) {
+// 			if (err) {
+// 				console.log(err);
+// 			}
+			
+// 		});
+// 	},
+
+//     insertOne: function (table, column, value) {
+// 		var queryString = 'INSERT INTO ' + table + '(' + column + ')' + "VALUES('" + value + "')";
+// 		console.log(queryString);
+
+// 		connection.query(queryString, vals, function (err, result) {
+// 			if (err) {
+// 				console.log(err);
+// 			}
+			
+// 		});
+// 	},
+
+//     updateOne: function(table, column, value) {
+//     	var queryString = "UPDATE " + table + " SET " + column + "=1 " + "WHERE id=" + value;
+//     	console.log(queryString);
+
+// 		connection.query(queryString, function(err, result) {
+// 			if (err) {
+// 				console.log(err);
+// 			}
+			
+// 		})
+// 	}
+	
+// };
+
+// module.exports = orm;
+
+
 var connection = require('../config/connection.js');
 
 var orm = {
-    
     selectAll: function (tableInput, cb) {
 		var queryString = 'SELECT * FROM ' + tableInput + ';';
 		
@@ -28,7 +71,6 @@ var orm = {
 			cb(result);
 		})
 	}
-	
 };
 
 module.exports = orm;

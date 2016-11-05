@@ -1,19 +1,18 @@
-//dependencies. Done as const just because I can
+//dependencies
 var express = require('express');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var app = express();
 var PORT = 3000;
 
-//serve up public folder and all content as static files to server.
+//serve as static
 app.use(express.static('public'));
 
-//use bodyParser, do not encode url
+
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
 
-// override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 
 //require handlebars
@@ -25,9 +24,11 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-//link to burger controller, set as default page"/"
-var routes = require('./controllers/burger_controller.js');
+//link to burger controller
+var routes = require('./controllers/burgers_controllers.js');
 app.use('/', routes);
 
 //listen on port, if undefined, use 3000
-app.listen(PORT);
+app.listen(PORT, function() {
+	console.log("App listening on PORT: " + PORT);
+});
