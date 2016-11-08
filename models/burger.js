@@ -1,22 +1,4 @@
 
-// var orm = require("../config/orm.js");
-
-// var burger = {
-// 	selectAll: function(){
-// 		orm.selectAll('burgers');
-// 	},
-
-// 	insertOne: function(column, name) {
-// 		orm.insertOne('burgers', column, name)
-// 	},
-
-// 	updateOne: function(column, name) {
-// 		orm.updateOne('burgers', column, name)
-// 	}
-
-// }
-
-// module.exports = burger;
 
 
 var orm = require('../config/orm.js');
